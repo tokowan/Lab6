@@ -225,13 +225,14 @@ Player.prototype.moveY = function(step, level, keys) {
   if (obstacle) {
     if (keys.up && this.speed.y > 0)
       this.speed.y = -jumpSpeed;
+      else if (obstacle === "lava") {
+        this.pos = new Vector(8, 14);
+      }
     else {
       this.speed.y = 0;
     }
   }
-  else if (obstacle = "lava") {
-    this.pos = Vector(10, 10);
-  }
+
   else {
     this.pos = newPos;
   }
